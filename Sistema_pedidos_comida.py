@@ -28,7 +28,6 @@ caja_total = 0.0
 contador_clientes = 0
 
 #  FUNCIONES DEL PEDIDO 
-
 def mostrar_categorias():
     print("\n--- CATEGORIAS ---")
     categorias = list(menu.keys())
@@ -36,7 +35,6 @@ def mostrar_categorias():
         print(f"{i}. {categoria}")
     print(f"{len(categorias)+1}. Finalizar pedido")
     return categorias
-
 
 def mostrar_productos(categoria):
     print(f"\n--- {categoria.upper()} ---")
@@ -46,7 +44,6 @@ def mostrar_productos(categoria):
     return productos
 
 # VALIDACIONES (CAPA DE SEGURIDAD)
-
 def validar_entero(mensaje, minimo, maximo):
     while True:
         entrada = input(mensaje)
@@ -78,7 +75,6 @@ def validar_si_no(mensaje):
             return entrada
         print("Error: Ingrese 'SI' o 'NO'.")
 
-
 # MEDIOS DE PAGO
 def elegir_medio_pago():
     print("\n--- MEDIO DE PAGO ---")
@@ -95,3 +91,62 @@ def elegir_medio_pago():
         return "Credito", 0.0
     else:
         return "Transferencia", 0.08
+
+# FUNCION PARA CREAR PEDIDO
+def crear_pedido():
+    global caja_total, contador_clientes
+
+    carrito = []       # Lista de elementos (nombre_producto, cantidad, subtotal_item)
+    subtotal = 0.0      # Acumulador del pedido actual
+
+    print("\n===== NUEVO PEDIDO =====")
+
+    while True:
+        categorias = mostrar_categorias()
+        opcion_cat = validar_entero("Elija una categoria: ", 1, len(categorias)+1)
+
+        # Opción de finalizar
+        if opcion_cat == len(categorias) + 1:
+            if len(carrito) == 0:
+                print("Error: El carrito está vacío, agregue al menos un producto.")
+                continue
+            break
+
+        categoria_elegida = categorias[opcion_cat - 1]
+        productos = mostrar_productos(categoria_elegida)
+
+        opcion_prod = validar_entero("Elija un producto: ", 1, len(productos))
+        nombre_producto, precio_unitario = productos[opcion_prod - 1]
+
+        cantidad = validar_cantidad(f"Cantidad de '{nombre_producto}': ")
+
+        subtotal_item = precio_unitario * cantidad
+        subtotal += subtotal_item
+        carrito.append((nombre_producto, cantidad, subtotal_item))
+
+        print(f"Agregado: {cantidad} x {nombre_producto} = ${subtotal_item:.2f}")
+
+        seguir = validar_si_no("¿Desea agregar otro producto? (SI/NO): ")
+        if seguir == "NO":
+            break
+
+    # RESUMEN DEL PEDIDO
+    print("\n--- RESUMEN DEL PEDIDO ---")
+    for nombre_producto, cantidad, subtotal_item in carrito:
+        print(f"{cantidad} x {nombre_producto} = ${subtotal_item:.2f}")
+    print(f"Subtotal: ${subtotal:.2f}")
+
+    # MEDIO DE PAGO Y DESCUENTO 
+    medio_pago, porcentaje_descuento = elegir_medio_pago()
+    descuento = subtotal * porcentaje_descuento
+    total_final = subtotal - descuento
+
+    print(f"\nMedio de pago: {medio_pago}")
+    print(f"Descuento aplicado: ${descuento:.2f} ({porcentaje_descuento*100:.0f}%)")
+    print(f"TOTAL A PAGAR: ${total_final:.2f}")
+
+    # ACTUALIZAR MEMORIA DEL DIA
+    caja_total += total_final
+    contador_clientes += 1
+
+    print("\nPedido registrado con éxito!.\n")
