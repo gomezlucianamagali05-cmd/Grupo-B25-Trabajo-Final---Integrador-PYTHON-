@@ -1,4 +1,4 @@
-## Sistema de Pedidos de Comida
+# Sistema de Pedidos de Comida
 
 ## Integrantes del Grupo B25
 
@@ -72,3 +72,15 @@ Esta opción finaliza la jornada laboral y cierra la ejecución del programa.
 1. En el Menú Principal, ingrese el número `3` y presione **Enter**.
 2. El sistema ejecutará automáticamente una última lectura de las estadísticas, mostrando en pantalla el balance y cierre final de la caja del día.
 3. Se mostrará el mensaje de despedida `¡Hasta la próxima!` y el programa finalizará de forma segura, liberando la consola de comandos.
+
+---
+
+## Uso de Inteligencia Artificial
+
+Durante el desarrollo del proyecto se utilizaron herramientas de Inteligencia Artificial como apoyo al aprendizaje, la resolución de problemas y la organización del trabajo en equipo.
+
+* **Claude** fue utilizado como herramienta de asistencia durante el desarrollo del código mediante preguntas sobre errores encontrados y posibles soluciones, la estructura del programa y el funcionamiento de diferentes características y herramientas del lenguaje Python. Las respuestas obtenidas fueron analizadas y utilizadas como guía para corregir y mejorar el código.
+
+* **ChatGPT (OpenAI)** fue utilizado como apoyo en la organización y división de tareas entre los integrantes del grupo, en la redacción de descripciones para los commits realizados y en consultas relacionadas con el uso de GitHub y Visual Studio Code (VS Code).
+
+En todos los casos, las respuestas y sugerencias generadas por estas herramientas fueron revisadas, analizadas y adaptadas por los integrantes del grupo antes de ser aplicadas al proyecto. La utilización de IA se realizó como herramienta de apoyo, manteniendo la comprensión y validación de las decisiones tomadas durante el desarrollo del sistema.
