@@ -150,3 +150,14 @@ def crear_pedido():
     contador_clientes += 1
 
     print("\nPedido registrado con éxito!.\n")
+
+
+    # VER ESTADÍSTICAS DEL DÍA
+def ver_estadisticas():
+    print("\n===== ESTADISTICAS DEL DIA =====")
+    print(f"Clientes atendidos: {contador_clientes}")
+    print(f"Caja total: ${caja_total:.2f}")
+    if contador_clientes > 0:
+        promedio = caja_total / contador_clientes
+        print(f"Ticket promedio: ${promedio:.2f}")
+    print("=================================\n")
