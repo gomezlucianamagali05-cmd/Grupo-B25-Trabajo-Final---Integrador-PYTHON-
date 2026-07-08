@@ -77,3 +77,21 @@ def validar_si_no(mensaje):
         if entrada in ("SI", "NO"):
             return entrada
         print("Error: Ingrese 'SI' o 'NO'.")
+
+
+# MEDIOS DE PAGO
+def elegir_medio_pago():
+    print("\n--- MEDIO DE PAGO ---")
+    print("1. Efectivo (10% de descuento)")
+    print("2. Debito (5% de descuento)")
+    print("3. Credito (sin descuento)")
+    print("4. Transferencia (8% de descuento)")
+    opcion = validar_entero("Elija el medio de pago (1-4): ", 1, 4)
+    if opcion == 1:
+        return "Efectivo", 0.10
+    elif opcion == 2:
+        return "Debito", 0.05
+    elif opcion == 3:
+        return "Credito", 0.0
+    else:
+        return "Transferencia", 0.08
