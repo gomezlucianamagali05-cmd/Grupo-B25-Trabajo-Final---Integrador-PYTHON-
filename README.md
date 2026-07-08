@@ -13,6 +13,8 @@ Comisión: K 1.2. (Comisión 2)
 
 ## Descripción general
 
+Link al github: https://github.com/gomezlucianamagali05-cmd/Grupo-B25-Trabajo-Final---Integrador-PYTHON-.git
+
 Este proyecto consiste en un sistema de gestión de pedidos para un local gastronómico desarrollado en Python y ejecutado por consola.
 
 El sistema permite administrar pedidos de clientes mediante un menú interactivo. Entre sus principales funcionalidades se encuentran:
@@ -28,6 +30,7 @@ El sistema permite administrar pedidos de clientes mediante un menú interactivo
 Durante el desarrollo se implementaron estructuras condicionales, ciclos, funciones, validaciones de datos, acumuladores, contadores y manejo básico de errores, cumpliendo con los requisitos establecidos en la consigna.
 
 ## Manual de Ejecución del Sistema
+Video explicativo: https://drive.google.com/drive/folders/1Z4bsZEAPeBCFwExRil5s3jcOxeAUL957?usp=drive_link
 
 Al iniciar el programa, se visualizará el **Menú Principal** en la consola con tres opciones numéricas. Para ejecutar cualquiera de ellas, se debe ingresar el número correspondiente y presionar **Enter**.
 
