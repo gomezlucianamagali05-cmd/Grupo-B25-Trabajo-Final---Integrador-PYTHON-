@@ -161,3 +161,32 @@ def ver_estadisticas():
         promedio = caja_total / contador_clientes
         print(f"Ticket promedio: ${promedio:.2f}")
     print("=================================\n")
+
+# MENU PRINCIPAL 
+def menu_principal():
+    while True:
+        print("=" * 40)
+        print("   SISTEMA DE PEDIDOS - MENU PRINCIPAL")
+        print("=" * 40)
+        print("1. Crear Pedido")
+        print("2. Ver Estadisticas del Dia")
+        print("3. Salir")
+        print("=" * 40)
+
+        opcion = input("Elija una opcion (1-3): ")
+
+        if opcion == "1":
+            crear_pedido()
+        elif opcion == "2":
+            ver_estadisticas()
+        elif opcion == "3":
+            print("\nCerrando el sistema. Resumen final:")
+            ver_estadisticas()
+            print("¡Hasta la próxima!")
+            break
+        else:
+            print("\nError: Por favor, ingrese una opcion valida (1, 2 y 3).\n")
+
+
+if __name__ == "__main__":
+    menu_principal()
