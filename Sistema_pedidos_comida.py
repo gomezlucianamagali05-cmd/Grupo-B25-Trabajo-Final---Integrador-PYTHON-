@@ -44,3 +44,36 @@ def mostrar_productos(categoria):
     for i, (nombre, precio) in enumerate(productos, start=1):
         print(f"{i}. {nombre} - ${precio:.2f}")
     return productos
+
+# VALIDACIONES (CAPA DE SEGURIDAD)
+
+def validar_entero(mensaje, minimo, maximo):
+    while True:
+        entrada = input(mensaje)
+        try:
+            valor = int(entrada)
+            if valor < minimo or valor > maximo:
+                print(f"Error: Ingrese un número entre {minimo} y {maximo}.")
+                continue
+            return valor
+        except ValueError:
+            print("Error: ingrese un número entero valido.")
+
+def validar_cantidad(mensaje):
+    while True:
+        entrada = input(mensaje)
+        try:
+            valor = int(entrada)
+            if valor < 1 or valor > 50:
+                print("Error: Ingrese un número entre 1 y 50")
+                continue
+            return valor
+        except ValueError:
+            print("Error: ingrese un número entero valido.")
+
+def validar_si_no(mensaje):
+    while True:
+        entrada = input(mensaje).strip().upper()
+        if entrada in ("SI", "NO"):
+            return entrada
+        print("Error: Ingrese 'SI' o 'NO'.")
